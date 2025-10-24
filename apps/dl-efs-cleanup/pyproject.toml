@@ -7,7 +7,9 @@ authors = [
     { name = "David Christie", email = "david.christie@mediaradar.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "database",
+]
 
 [project.scripts]
 dl-efs-cleanup = "dl_efs_cleanup:main"
@@ -15,3 +17,6 @@ dl-efs-cleanup = "dl_efs_cleanup:main"
 [build-system]
 requires = ["uv_build>=0.9.5,<0.10.0"]
 build-backend = "uv_build"
+
+[tool.uv.sources]
+database = { workspace = true }

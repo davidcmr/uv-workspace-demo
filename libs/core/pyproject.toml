@@ -7,8 +7,17 @@ authors = [
     { name = "David Christie", email = "david.christie@mediaradar.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "boto3>=1.40.58",
+    "psycopg[binary]>=3.2.11",
+    "sqlalchemy>=2.0.44",
+]
 
 [build-system]
 requires = ["uv_build>=0.9.5,<0.10.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "boto3-stubs[essential]>=1.40.58",
+]
