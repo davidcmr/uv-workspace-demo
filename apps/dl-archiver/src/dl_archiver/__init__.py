@@ -13,7 +13,7 @@ def main() -> None:
         f.write("Hello, world!")
     cm = CloudManager(config.cloud_provider, config.provider_config)
     cm.upload_object("test.txt", "test-bucket", "test.txt")
-    with db.session(readonly=True) as session:
+    with db.session() as session:
         update_stmt = (
             sa.update(FileModel)
             .where(FileModel.path == "test.txt")
