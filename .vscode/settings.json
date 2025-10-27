@@ -1,3 +1,6 @@
 {
     "mypy-type-checker.args": ["--config-file=pyproject.toml"],
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.hideCondition": "never",
+    "terminal.integrated.tabs.showActions": "always"
 }

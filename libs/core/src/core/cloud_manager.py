@@ -1,12 +1,10 @@
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
 from enum import Enum
-from typing import TYPE_CHECKING, NotRequired, TypedDict
+from typing import NotRequired, TypedDict
 
 import boto3
-
-if TYPE_CHECKING:
-    from mypy_boto3_s3.client import S3Client
+from mypy_boto3_s3.client import S3Client
 
 
 class AWSConfig(TypedDict, total=False):

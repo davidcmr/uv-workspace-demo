@@ -81,24 +81,21 @@ version = "0.1.0"
 source = { editable = "libs/core" }
 dependencies = [
     { name = "boto3" },
+    { name = "boto3-stubs", extra = ["essential"] },
     { name = "psycopg", extra = ["binary"] },
     { name = "sqlalchemy" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "boto3-stubs", extra = ["essential"] },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "boto3", specifier = ">=1.40.58" },
+    { name = "boto3-stubs", extras = ["essential"], specifier = ">=1.40.58" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2.11" },
     { name = "sqlalchemy", specifier = ">=2.0.44" },
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "boto3-stubs", extras = ["essential"], specifier = ">=1.40.58" }]
+dev = []
 
 [[package]]
 name = "database"
