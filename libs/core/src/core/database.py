@@ -5,6 +5,10 @@ from sqlalchemy import Engine, create_engine
 from sqlalchemy.orm import Session, sessionmaker
 
 
+class ConnectionNotConfigured(Exception):
+    """Raised when attempting to use a session but a connection is not configured."""
+
+
 class Database:
     """
     Database class that provides readonly and write sessions with autocommit.
@@ -30,7 +34,7 @@ class Database:
         elif not readonly:
             _session = self._session()
         else:
-            raise RuntimeError(
+            raise ConnectionNotConfigured(
                 "Readonly connection not configured. Provide readonly_url when initializing the database."
             )
         try:
