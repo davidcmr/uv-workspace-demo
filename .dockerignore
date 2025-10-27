@@ -1,0 +1,16 @@
+.venv
+venv
+.vscode
+.env**
+.mypy_cache
+.pytest_cache
+.ruff_cache
+.cache
+**/.cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.cache/
+pip-cache/
+pip_cache/

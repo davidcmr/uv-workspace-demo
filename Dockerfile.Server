@@ -1,0 +1,19 @@
+FROM python:3.13-slim AS base
+
+# Install make and other build tools
+RUN apt-get update && \
+    apt-get install -y make && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+COPY pyproject.toml uv.lock ./
+COPY libs/ ./libs/
+COPY apps/ ./apps/
+RUN make dev
+RUN make bundle target=neuralbooru
+
+FROM python:3.13-slim AS server
+WORKDIR /app/neuralbooru
+COPY --from=base /app/neuralbooru /app/neuralbooru
+CMD ["python", "-m", "dl-archiver"]
+CMD ["python", "-m", "dl-efs-cleanup"]
